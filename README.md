@@ -13,8 +13,8 @@
 L'obiettivo è implementare un compilatore completo che esegue:
 1.  **Analisi Lessicale e Sintattica:** Riconoscimento della struttura del linguaggio.
 2.  **Analisi Semantica:** Validazione della logica e della coerenza del codice (controllo tipi, scope, ecc.).
-3.  [cite_start]**Gestione Errori:** Rilevamento di errori bloccanti e warning non bloccanti [cite: 1488-1499].
-4.  [cite_start]**Generazione Output:** Traduzione dello script in un output visivo (un disegno su un pannello Java Swing) .
+3.  **Gestione Errori:** Rilevamento di errori bloccanti e warning non bloccant.
+4.  **Generazione Output:** Traduzione dello script in un output visivo.
 
 ### Esempio di Codice
 
