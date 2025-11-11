@@ -78,17 +78,17 @@ L'handler mantiene due "symbol table" separate:
 
 Questo progetto utilizza lo stack software definito dai requisiti del corso e dai file forniti:
 
-- **Java (JDK):** Per la logica dell'interprete, le classi del Command Pattern e l'interfaccia grafica (Swing).
+- **Java (JDK):** Per la logica dell'interprete, le classi del Command Pattern.
 - **ANTLR 3.4:** Il generatore di parser utilizzato per l'analisi lessicale e sintattica.
 - **AntlrWorks 1.5.2:** L'IDE specifico per lo sviluppo e il debug delle grammatiche ANTLR 3 (`.g`).
 - **Eclipse IDE:** L'ambiente di sviluppo per la scrittura e la compilazione del codice Java.
 - **Git & GitHub:** Per il controllo di versione e la gestione del progetto.
 
-
+---
 
 ## 💡 Esempio di Codice Completo
 
-Questo esempio mostra le funzionalità principali del linguaggio, inclusa la sintassi C-style del ciclo `FOR`.
+Questo esempio mostra le funzionalità principali del linguaggio.
 
 ```geoscript
 // --- GeoScript Example ---
@@ -103,7 +103,7 @@ VAR size = 10;
 VAR padding = 5;
 VAR max_items = 5;
 
-// 3. FOR loop (C-style) e IF statement
+// 3. FOR loop e IF statement
 // Disegna una fila di forme alternate
 FOR (VAR i = 0; i < max_items; i = i + 1) {
     VAR x_pos = i * (size + padding) + 10;
