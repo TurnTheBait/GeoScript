@@ -10,9 +10,9 @@ public class Main {
 
         // Lexer → TokenStream → Parser
         ANTLRInputStream input = new ANTLRInputStream(is);
-        GeoScriptGrammarLexer lexer = new GeoScriptGrammarLexer(input);
+        GeoScriptLexer lexer = new GeoScriptLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        GeoScriptGrammarParser parser = new GeoScriptGrammarParser(tokens);
+        GeoScriptParser parser = new GeoScriptParser(tokens);
 
         // Avvia la regola principale
         parser.prog();
