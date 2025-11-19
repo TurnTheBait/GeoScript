@@ -18,7 +18,8 @@ RECT AT (x, y) SIZE (100, 50) FILL colore_rosso STROKE colore_grigio;
 CIRCLE AT (400, 300) RADIUS 50 STROKE colore_blu;
 LINE FROM (0, 0) TO (800, 600) STROKE #00FF00;
 SQUARE AT (600, 100) SIZE lato FILL colore_grigio;
-TRIANGLE AT (300, 400) POINTS (350, 450, 250, 450) FILL colore_verde;
+TRIANGLE AT (300, 400) POINTS (350, 450, 250, 450, 300, 350) FILL colore_verde;
+
 ELLIPSE AT (200, 500) RADII (60, 30) STROKE colore_blu;
 POLYGON POINTS (100,400,150,450,120,480,90,460) FILL colore_rosso;
 TEXT("Benvenuto in GeoScript!", 50, 580) COLOR colore_blu;
@@ -42,7 +43,6 @@ WHILE (count < 3) {
 
 VAR i = 0;
 FOR (i = 0; i < 5; i = i + 1) {
-  // Sostituiamo % con alternativa (i - (i/2)*2) == 0
   IF ((i - (i / 2) * 2) == 0) THEN {
     CIRCLE AT (100 + i * 60, 200) RADIUS 20 FILL colore_rosso;
   }
@@ -51,6 +51,7 @@ FOR (i = 0; i < 5; i = i + 1) {
   }
 }
 
+// Questi generano warning intenzionali
 RECT AT (0, 0) SIZE (10, 10) FILL colore_inesistente;
 VAR zero = 0;
 VAR test_div = 100 / zero;
