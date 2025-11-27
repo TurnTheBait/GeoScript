@@ -43,7 +43,7 @@ WHILE (count < 3) {
 
 VAR i = 0;
 FOR (i = 0; i < 5; i = i + 1) {
-  IF ((i - (i / 2) * 2) == 0) THEN {
+  IF ((i%2)==0) THEN {
     CIRCLE AT (100 + i * 60, 200) RADIUS 20 FILL colore_rosso;
   }
   ELSE {

@@ -1,3 +1,4 @@
+package myPackage;
 import org.antlr.runtime.*;
 
 import java.io.FileInputStream;
@@ -9,9 +10,9 @@ public class Main {
         InputStream is = new FileInputStream(inputFile);
 
         ANTLRInputStream input = new ANTLRInputStream(is);
-        GeoScriptGrammarLexer lexer = new GeoScriptGrammarLexer(input);
+        GeoScriptLexer lexer = new GeoScriptLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        GeoScriptGrammarParser parser = new GeoScriptGrammarParser(tokens);
+        GeoScriptParser parser = new GeoScriptParser(tokens);
 
         // Avvia la regola principale
         parser.prog();
