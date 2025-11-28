@@ -1,76 +1,29 @@
 # 🎨 GeoScript
 
-**GeoScript** è un interprete per un linguaggio di programmazione procedurale e generativa, sviluppato per il progetto del corso di **Linguaggi Formali e Compilatori** (LFC).
+**GeoScript** è un linguaggio di scripting intuitivo progettato per creare grafica vettoriale attraverso il codice.
+Nato come progetto per il corso di **Linguaggi Formali e Compilatori**, GeoScript permette di trasformare logica e matematica in forme, disegni e visualizzazioni grafiche.
 
 ---
 
-## 👥 Team
-* Cesari Matteo  
-* Girolamo Davide
+## 👥 Il Team
+* **Cesari Matteo**
+* **Girolamo Davide**
 
 ---
 
-## 🖌️ Il Linguaggio GeoScript
+## 🚀 Che cos'è GeoScript?
 
-L'interprete analizza uno script GeoScript, ne valida la correttezza sintattica e semantica, e infine esegue i comandi per produrre un output.
+GeoScript nasce per colmare il divario tra la programmazione e il disegno. Invece di disegnare manualmente con il mouse, l'utente descrive la scena utilizzando comandi testuali semplici e leggibili.
 
-Il linguaggio supporta:
-* Definizione di variabili (colori e numeri)
-* Espressioni aritmetiche complesse
-* Flusso di controllo (`IF/THEN/ELSE`, `WHILE`, `FOR`)
-* Un set esteso di forme geometriche
-* Trasformazioni della matrice di disegno
+Il sistema agisce come un "artista virtuale": legge le istruzioni, controlla che siano coerenti (ad esempio, che non si stia cercando di usare un colore inesistente) e genera automaticamente l'immagine finale.
 
----
+### ✨ Funzionalità Principali
 
-## 🏛️ Architettura dell'Interprete (Command Pattern)
-
-Questo progetto è implementato come un **interprete a due passaggi (Two-Pass Interpreter)** direttamente dentro **ANTLR**, utilizzando il **Command Pattern**.
-
----
-
-### 🔹 Passaggio 1: Parsing (Costruzione)
-
-Mentre ANTLR analizza il codice, non esegue i comandi immediatamente.  
-Costruisce invece una lista di oggetti Java (`List<Command>`).
-
-Le espressioni (`expr`, `term`, `factor`) vengono trasformate in un albero di oggetti `Expr` (es. `BinExpr`, `ConstExpr`) per la **valutazione posticipata**.
-
----
-
-### 🔹 Passaggio 2: Esecuzione
-
-Una volta che il parsing raggiunge **EOF** (fine del file), la regola `prog` avvia l'esecuzione.
-
-L'interprete cicla sulla `List<Command>` e chiama il metodo `execute(sem)` su ciascun comando (`IfCommand`, `ForCommand`, `ShapeCommand`, ecc.).
-
-Questo design permette una **gestione complessa dello stato e del flusso di controllo**  
-(ad esempio, i cicli `WHILE` / `FOR` possono ri-eseguire i loro comandi interni).
-
----
-
-## 🧠 Analisi Semantica e Gestione Errori
-
-L'analisi semantica è gestita sia durante il parsing che durante l'esecuzione tramite la classe `SemanticHandler`, definita direttamente nel blocco `@members` della grammatica.
-
----
-
-### 🗂️ Gestione Stato (Symbol Table)
-
-L'handler mantiene due "symbol table" separate:
-
-- una per i **colori** → `Map<String, String> colors`
-- una per le **variabili numeriche** → `Map<String, Integer> vars`
-
----
-
-### 🚨 Errori e Warning Rilevati
-
-- **Errore (Stato):** Un comando di disegno (es. `RECT`) viene usato prima della definizione di `CANVAS`.
-- **Warning (Scope):** Si fa riferimento a una variabile colore non definita (es. `FILL colore_sconosciuto`).
-- **Warning (Scope):** Si fa riferimento a una variabile numerica non definita (es. `x + variabile_inesistente`).
-- **Errore (Esecuzione):** Divisione per zero durante la valutazione di un'espressione.
-- **Errore (Sintassi):** Gestione personalizzata degli errori di sintassi ANTLR tramite `displayRecognitionError`.
+* **📐 Disegno Geometrico:** Supporto nativo per forme classiche come rettangoli, cerchi, ellissi, linee e poligoni complessi.
+* **🧠 Logica Intelligente:** Grazie ai comandi `IF`, `ELSE` e ai cicli `FOR` e `WHILE`, è possibile creare disegni che cambiano in base a regole o generare pattern ripetitivi complessi con poche righe di codice.
+* **🔢 Matematica e Variabili:** Possibilità di definire variabili (numeri e colori) e usare espressioni matematiche per calcolare posizioni e dimensioni dinamicamente.
+* **🛡️ Controllo Errori:** Il sistema avvisa l'utente se ci sono errori logici, come il tentativo di disegnare fuori dai bordi della tela o l'uso di variabili non dichiarate.
+* **🔄 Trasformazioni:** Strumenti per ruotare, spostare e ridimensionare intere parti del disegno.
 
 ---
 
@@ -86,45 +39,43 @@ Questo progetto utilizza lo stack software definito dai requisiti del corso e da
 
 ---
 
-## 💡 Esempio di Codice Completo
+## 💡 Esempio: Cosa puoi fare?
 
-Questo esempio mostra le funzionalità principali del linguaggio.
+Con GeoScript, creare pattern complessi è immediato. Ecco un esempio di script che genera forme alternate e cerchi concentrici automaticamente:
 
 ```geoscript
-// --- GeoScript Example ---
+// --- Esempio GeoScript ---
 
-// 1. Setup Obbligatorio
+// 1. Prepariamo la tela
 CANVAS(800, 600);
 
-// 2. Variabili Colore e Numeriche
-DEF colore_rosso = #FF0000;
-DEF colore_blu = #0000FF;
-VAR size = 10;
-VAR padding = 5;
-VAR max_items = 5;
+// 2. Definiamo i nostri colori e parametri
+DEF rosso = #FF0000;
+DEF blu = #0000FF;
+VAR dimensione = 50;
+VAR spaziatura = 10;
 
-// 3. FOR loop e IF statement
-// Disegna una fila di forme alternate
-FOR (VAR i = 0; i < max_items; i = i + 1) {
-    VAR x_pos = i * (size + padding) + 10;
+// 3. Generazione Automatica (Ciclo FOR)
+// Disegna una serie di forme una accanto all'altra
+FOR (VAR i = 0; i < 5; i = i + 1) {
+    VAR x = i * (dimensione + spaziatura) + 20;
     
-    IF (x_pos > 300) THEN {
-        // Non fare nulla
+    // Logica Condizionale: Alterna tra quadrato e cerchio
+    IF (i % 2 == 0) THEN {
+        RECT AT (x, 50) SIZE (dimensione, dimensione) FILL rosso;
     } ELSE {
-        // Disegna un rettangolo rosso
-        RECT AT (x_pos, 50) SIZE (size, size) FILL colore_rosso;
+        CIRCLE AT (x + 25, 75) RADIUS (dimensione / 2) FILL blu;
     }
 }
 
-// 4. WHILE loop
-// Disegna cerchi concentrici
-VAR r = 200;
-WHILE (r > 0) {
-    ELLIPSE AT (400, 300) RADII (r, r / 2) STROKE #333333;
-    r = r - 20; // Aggiorna la variabile
+// 4. Pattern Concentrico (Ciclo WHILE)
+VAR raggio = 200;
+WHILE (raggio > 0) {
+    ELLIPSE AT (400, 300) RADII (raggio, raggio / 2) STROKE #333333;
+    raggio = raggio - 20; // Riduciamo il raggio ad ogni passaggio
 }
 
-// 5. Trasformazioni e Testo
-TRANSLATE (10, 500);
-ROTATE (15); // Ruota il contesto di 15 gradi
-TEXT ("Progetto LFC Finito!", 0, 0) COLOR #000000;
+// 5. Aggiunta di Testo e Rotazione
+TRANSLATE (50, 500);
+ROTATE (15); 
+TEXT ("Grafica Generativa!", 0, 0) COLOR #000000;
