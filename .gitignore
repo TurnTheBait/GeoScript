@@ -1,5 +1,7 @@
 # Compiled class file
 *.class
+*.classpath
+*.project
 
 # Log file
 *.log
@@ -26,4 +28,4 @@ replay_pid*
 /.metadata/
 
 # Mac OS 
-.DS_Store
+*.DS_Store
