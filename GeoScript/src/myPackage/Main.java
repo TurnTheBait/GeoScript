@@ -1,4 +1,5 @@
 package myPackage;
+
 import org.antlr.runtime.*;
 
 import java.io.FileInputStream;
@@ -6,7 +7,7 @@ import java.io.InputStream;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String inputFile = (args.length > 0) ? args[0] : "test.geo";
+        String inputFile = (args.length > 0) ? args[0] : "PaginaQuaderno.geo";
         InputStream is = new FileInputStream(inputFile);
 
         ANTLRInputStream input = new ANTLRInputStream(is);
@@ -18,3 +19,4 @@ public class Main {
         parser.prog();
     }
 }
+ 
