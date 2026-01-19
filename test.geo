@@ -58,3 +58,15 @@ VAR test_div = 100 / zero;
 VAR test_undef = 10 + variabile_inesistente;
 
 TEXT("Test completato!", 300, 550) COLOR colore_verde;
+
+// ======================================
+// TEST MISURE NEGATIVE
+// ======================================
+// Le seguenti istruzioni devono generare errori di validazione (misure negative)
+
+RECT AT(100, 100) SIZE((0-50), 50);      // Width negativa
+RECT AT(150, 150) SIZE(50, (0-50));      // Height negativa
+CIRCLE AT(200, 200) RADIUS((0-20));      // Raggio negativo
+SQUARE AT(300, 300) SIZE((0-30));        // Lato negativo
+ELLIPSE AT(400, 400) RADII((0-40), 20);  // Raggio X negativo
+ELLIPSE AT(400, 450) RADII(40, (0-20));  // Raggio Y negativo

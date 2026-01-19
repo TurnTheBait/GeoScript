@@ -7,7 +7,7 @@ import java.io.InputStream;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String inputFile = (args.length > 0) ? args[0] : "PaginaQuaderno.geo";
+        String inputFile = (args.length > 0) ? args[0] : "vaporwavehorizon.geo";
         InputStream is = new FileInputStream(inputFile);
 
         ANTLRInputStream input = new ANTLRInputStream(is);
@@ -19,4 +19,3 @@ public class Main {
         parser.prog();
     }
 }
- 
