@@ -65,11 +65,10 @@ TEXT("B", 360, 280) COLOR ink_black;
 TEXT("C", 245, 140) COLOR ink_black;
 
 // Cerchio Inscritto (Simulato geometricamente approx)
-// Centro approx a (250, 230), raggio ~ 40
 CIRCLE AT (250, 230) RADIUS 35 STROKE pencil; // Matita
 
 // Linee di costruzione (Altezze/Mediane - simulate)
-LINE FROM (250, 150) TO (250, 270) STROKE grid_lines; // Altezza (usiamo colore griglia per farla tenue)
+LINE FROM (250, 150) TO (250, 270) STROKE grid_lines; 
 
 // Annotazioni Formule
 TEXT("Area = (b * h) / 2", 400, 200) COLOR pen_blue;
@@ -89,11 +88,6 @@ TEXT("Esercizio 2: Proiezione Cubo", 100, ex2_y) COLOR pen_red;
 // Faccia Frontale
 RECT AT (150, ex2_y + 50) SIZE (100, 100) STROKE pen_blue;
 
-// Faccia Posteriore (Shiftata)
-// Usiamo POLYGON o LINEE per collegare, ma RECT per il retro
-// RECT AT (200, ex2_y + 20) SIZE (100, 100) STROKE pencil; 
-// Facciamolo a mano con linee per effetto "tratteggiato" o matita leggera
-
 VAR back_x = 200; 
 VAR back_y = ex2_y + 20;
 
@@ -105,9 +99,6 @@ LINE FROM (150, 400) TO (200, 370) STROKE pencil; // Top-Left
 LINE FROM (250, 400) TO (300, 370) STROKE pencil; // Top-Right
 LINE FROM (150, 500) TO (200, 470) STROKE pencil; // Bottom-Left
 LINE FROM (250, 500) TO (300, 470) STROKE pencil; // Bottom-Right
-
-// Riempimento selettivo per dare "volume" (Opzionale, ma GeoScript riempie tutto il rect)
-// Lasciamo "wireframe" stile disegno tecnico
 
 TEXT("Volume = L^3", 400, 420) COLOR pen_blue;
 TEXT("L = 10u", 400, 440) COLOR pencil;

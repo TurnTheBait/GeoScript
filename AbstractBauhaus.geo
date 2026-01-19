@@ -39,14 +39,11 @@ TRANSLATE (400, 300);
 ROTATE 30; // Ruota di 30 gradi
 
 // Rettangolo Rosso che attraversa la composizione
-// Disegnato relativo alla nuova origine (400, 300)
 RECT AT (0-300, 0-20) SIZE (600, 40) FILL art_red;
 
 // ----------------------------------------------
 // 3. DETTAGLI FINALI
 // ----------------------------------------------
-// Queste forme subiranno la rotazione e traslazione corrente! 
-// Possiamo usarlo a nostro vantaggio per altri elementi dinamici.
 
 RECT AT (100, 100) SIZE (20, 20) FILL art_blue; // Sarà ruotato e spostato
 RECT AT (140, 100) SIZE (20, 20) FILL art_blue; 

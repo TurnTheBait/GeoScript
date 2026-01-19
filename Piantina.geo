@@ -17,8 +17,7 @@ DEF verde_piante = #27AE60;    // Verde
 RECT AT (0,0) SIZE (1000, 800) FILL #FFFFFF;
 TEXT("PROGETTO: APPARTAMENTO A", 40, 40) COLOR #000000;
 
-// --- 2. MURI PERIMETRALI (Disegniamo rettangoli pieni) ---
-// La casa è un rettangolo 600x400
+// --- 2. MURI PERIMETRALI ---
 // Muro Nord
 RECT AT (0, 0) SIZE (600, 20) FILL muro_colore;
 // Muro Sud
@@ -28,7 +27,7 @@ RECT AT (0, 0) SIZE (20, 420) FILL muro_colore;
 // Muro Est
 RECT AT (580, 0) SIZE (20, 420) FILL muro_colore;
 
-// --- 3. STANZE INTERNE (Divisori) ---
+// --- 3. STANZE INTERNE  ---
 
 // Muro divisorio verticale (Separa Giorno/Notte)
 RECT AT (300, 20) SIZE (10, 400) FILL muro_colore;
@@ -37,7 +36,6 @@ RECT AT (300, 20) SIZE (10, 400) FILL muro_colore;
 RECT AT (300, 200) SIZE (280, 10) FILL muro_colore;
 
 // Etichette Stanze
-// Etichette Stanze (Spostate per evitare sovrapposizioni)
 TEXT("ZONA GIORNO", 180, 100) COLOR #7F8C8D;
 TEXT("CAMERA", 330, 180) COLOR #7F8C8D;
 TEXT("BAGNO", 450, 300) COLOR #7F8C8D;
@@ -45,8 +43,6 @@ TEXT("BAGNO", 450, 300) COLOR #7F8C8D;
 // --- 4. ARREDAMENTO (Composizione di Primitive) ---
 
 // -- Cucina (Zona Giorno) --
-// Blocco cucina (Sostituito sopra)
-// RECT AT (30, 30) SIZE (20, 300) FILL mobili_wood;
 // Tavolo rotondo
 CIRCLE AT (150, 150) RADIUS 40 FILL #FFFFFF STROKE mobili_wood;
 // Sedie (Ciclo per posizionarle attorno)
@@ -102,10 +98,8 @@ LINE FROM (100, 420) TO (100, 360) STROKE #000000; // Anta porta aperta
 LINE FROM (100, 420) TO (160, 420) STROKE quote_colore; // Ingombro
 
 // Porte Interne (Aperture nei muri)
-// Porta Camera (su muro divisorio x=300, y=100)
 RECT AT (300, 100) SIZE (10, 60) FILL pavimento; // Buca
 LINE FROM (300, 100) TO (340, 140) STROKE #000000; // Anta 
-// Porta Bagno (su muro divisorio x=300, y=300)
 RECT AT (300, 300) SIZE (10, 60) FILL pavimento; // Buca
 LINE FROM (300, 300) TO (340, 340) STROKE #000000; // Anta
 
@@ -120,7 +114,7 @@ TEXT("12.00 mt", 280, 470) COLOR quote_colore;
 LINE FROM (630, 0) TO (630, 420) STROKE quote_colore; // Linea verticale
 TEXT("8.40 mt", 640, 200) COLOR quote_colore;
 
-// --- 7. TOCCO FINALE: UNA PIANTA ---
+// --- 7. UNA PIANTA ---
 // Usiamo un ciclo per fare le foglie
 CIRCLE AT (550, 380) RADIUS 15 FILL #8E44AD; // Vaso
 VAR k = 0;

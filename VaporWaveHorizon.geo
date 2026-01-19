@@ -50,7 +50,6 @@ cut_h = cut_h + 1;
 
 i = i + 1;
 
-
 }
 
 // ==========================================
@@ -96,7 +95,6 @@ VAR base_x = start_offset + (j * 100);
 
 LINE FROM (center_x, horizon) TO (base_x, 600) STROKE c_grid;
 
-
 }
 
 // B. LINEE ORIZZONTALI
@@ -110,7 +108,6 @@ LINE FROM (0, h_y) TO (width, h_y) STROKE c_grid;
 VAR step = k * 4;
 h_y = h_y + step;
 k = k + 1;
-
 
 }
 
